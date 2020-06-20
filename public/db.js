@@ -44,8 +44,10 @@ function checkDatabase() {
         .then(response => response.json())
         .then(() => {
           // delete records if successful
-            deletePending();
-    
+          const transaction = db.transaction(["pending"], "readwrite");
+          const store = transaction.objectStore("pending");
+          store.clear();
+            
         });
     }
   };
