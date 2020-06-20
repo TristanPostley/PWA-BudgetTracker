@@ -44,9 +44,7 @@ function checkDatabase() {
         .then(response => response.json())
         .then(() => {
           // delete records if successful
-            if (navigator.onLine) {
-                deletePending();
-            }
+            deletePending();
     
         });
     }
